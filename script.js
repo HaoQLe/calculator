@@ -1,10 +1,24 @@
 // Retrieve buttons
 const clearBtn = document.getElementById('clearBtn');
 const deleteBtn = document.getElementById('deleteBtn');
+const dotBtn = document.getElementById('dotBtn');
+const equalsBtn= document.getElementById('equalsBtn');
+
 const numberBtns = document.querySelectorAll('.number');
 const operatorBtns = document.querySelectorAll('.operator')
 
+clearBtn.addEventListener('click', () => console.log("clear"));
+deleteBtn.addEventListener('click', () => console.log("delete"));
+dotBtn.addEventListener('click', () => console.log("dot"));
+equalsBtn.addEventListener('click', () => console.log("equals"));
 
+numberBtns.forEach((button) => {
+    button.addEventListener('click', () => console.log(button.textContent));
+})
+
+operatorBtns.forEach((button) => {
+    button.addEventListener('click', () => console.log(button.textContent));
+})
 
 let opOne; // Op for operand
 let opTwo;
@@ -30,15 +44,11 @@ function operate(opOne, opTwo, operator) {
     switch (operator) {
         case ('+'):
             return add(opOne, opTwo);
-            break;
         case ('-'):
             return subtract(opOne, opTwo);
-            break;
         case ('*'):
             return multiply(opOne, opTwo);
-            break;
         case ('/'):
             return divide(opOne, opTwo);
-            break;
     } 
 }
