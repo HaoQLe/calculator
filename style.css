@@ -7,6 +7,13 @@
     justify-content: center;
 }
 
+#display {
+    border: black solid;
+    height: 100px;
+    width: 90%;
+    margin: 10px;
+}
+
 #buttons {
     display: flex;
     flex-wrap: wrap;
