@@ -17,7 +17,7 @@ dotBtn.addEventListener('click', () => console.log("dot"));
 equalsBtn.addEventListener('click', () => console.log("equals"));
 
 numberBtns.forEach((button) => {
-    button.addEventListener('click', () => console.log(button.textContent));
+    button.addEventListener('click', () => appendNumber(button.textContent));
 });
 
 operatorBtns.forEach((button) => {
@@ -25,10 +25,8 @@ operatorBtns.forEach((button) => {
 });
 
 
-function appendNumber() {
-    if (currScreen.textContent === 0) {
-        currScreen.textContent += number;
-    }
+function appendNumber(n) {
+    currScreen.textContent += n;
 }
 
 
