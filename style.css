@@ -1,8 +1,3 @@
-body {
-    display: flex;
-    justify-content: center;
-}
-
 #calculator {
     border: black solid;
     width: 400px;
