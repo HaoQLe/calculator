@@ -4,5 +4,22 @@ body {
 }
 
 #calculator {
+    border: black solid;
+    width: 400px;
+    min-height: 500px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+button {
+    padding: 20px;
+    font-size: 20px;
 }
