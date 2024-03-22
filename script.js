@@ -1,3 +1,11 @@
+// Retrieve buttons
+const clearBtn = document.getElementById('clearBtn');
+const deleteBtn = document.getElementById('deleteBtn');
+const numberBtns = document.querySelectorAll('.number');
+const operatorBtns = document.querySelectorAll('.operator')
+
+
+
 let opOne; // Op for operand
 let opTwo;
 let operator;
