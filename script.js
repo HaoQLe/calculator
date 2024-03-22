@@ -7,6 +7,10 @@ const equalsBtn= document.getElementById('equalsBtn');
 const numberBtns = document.querySelectorAll('.number');
 const operatorBtns = document.querySelectorAll('.operator')
 
+// Retrieve screens
+const currScreen = document.getElementById('currScreen');
+const prevScreen = document.getElementById('prevScreen');
+
 clearBtn.addEventListener('click', () => console.log("clear"));
 deleteBtn.addEventListener('click', () => console.log("delete"));
 dotBtn.addEventListener('click', () => console.log("dot"));
@@ -14,11 +18,20 @@ equalsBtn.addEventListener('click', () => console.log("equals"));
 
 numberBtns.forEach((button) => {
     button.addEventListener('click', () => console.log(button.textContent));
-})
+});
 
 operatorBtns.forEach((button) => {
     button.addEventListener('click', () => console.log(button.textContent));
-})
+});
+
+
+function appendNumber() {
+    if (currScreen.textContent === 0) {
+        currScreen.textContent += number;
+    }
+}
+
+
 
 let opOne; // Op for operand
 let opTwo;
