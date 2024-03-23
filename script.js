@@ -54,10 +54,20 @@ function setOperation(operator) {
 }
 
 function evaluate() {
+    if (currOperator === null || shouldResetScreen) {
+        return
+    }
+
+    if (currOperator === '÷' && currScreen.textContent === '0') {
+        alert("You cannot divide by zero!");
+        return;
+    }
+
     operandTwo = currScreen.textContent;
     prevScreen.textContent = `${operandOne} ${currOperator} ${operandTwo} =`;
     console.log(operate(operandOne, operandTwo, currOperator));
     currScreen.textContent = operate(operandOne, operandTwo, currOperator);
+    currOperator = null;
 }
 
 
