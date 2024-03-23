@@ -79,11 +79,6 @@ function evaluate() {
     currOperator = null;
 }
 
-
-let opOne; // Op for operand
-let opTwo;
-let operator;
-
 function add(x, y) {
     return x + y;
 }
