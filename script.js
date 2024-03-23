@@ -56,6 +56,7 @@ function setOperation(operator) {
 function evaluate() {
     operandTwo = currScreen.textContent;
     prevScreen.textContent = `${operandOne} ${currOperator} ${operandTwo} =`;
+    console.log(operate(operandOne, operandTwo, currOperator));
     currScreen.textContent = operate(operandOne, operandTwo, currOperator);
 }
 
@@ -89,9 +90,9 @@ function operate(opOne, opTwo, operator) {
             return add(opOne, opTwo);
         case ('-'):
             return subtract(opOne, opTwo);
-        case ('*'):
+        case ('×'):
             return multiply(opOne, opTwo);
-        case ('/'):
+        case ('÷'):
             return divide(opOne, opTwo);
     } 
 }
