@@ -16,7 +16,7 @@ const operatorBtns = document.querySelectorAll('.operator')
 const currScreen = document.getElementById('currScreen');
 const prevScreen = document.getElementById('prevScreen');
 
-clearBtn.addEventListener('click', () => console.log("clear"));
+clearBtn.addEventListener('click', () => clear());
 deleteBtn.addEventListener('click', () => console.log("delete"));
 dotBtn.addEventListener('click', () => console.log("dot"));
 equalsBtn.addEventListener('click', () => evaluate());
@@ -32,6 +32,15 @@ operatorBtns.forEach((button) => {
 function resetScreen() {
     currScreen.textContent = '';
     shouldResetScreen = false;
+}
+
+function clear() {
+    operandOne = '';
+    operandTwo = '';
+    currOperator = null;
+
+    currScreen.textContent = '0';
+    prevScreen.textContent = '';
 }
 
 function appendNumber(n) {
