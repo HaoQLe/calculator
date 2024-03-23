@@ -1,3 +1,5 @@
+let shouldResetScreen;
+
 // Retrieve buttons
 const clearBtn = document.getElementById('clearBtn');
 const deleteBtn = document.getElementById('deleteBtn');
@@ -24,13 +26,17 @@ operatorBtns.forEach((button) => {
     button.addEventListener('click', () => appendOperator(button.textContent));
 });
 
+function resetScreen() {
+    currScreen.textContent = '';
+    shouldResetScreen = false;
+}
 
 function appendNumber(n) {
-    if (currScreen.textContent === "0") {
-        currScreen.textContent = n;
-    } else {
-        currScreen.textContent += n;
+    if (currScreen.textContent === "0" || shouldResetScreen) {
+        resetScreen();
     }
+    
+    currScreen.textContent += n;
 }
 
 function appendOperator(operator) {
