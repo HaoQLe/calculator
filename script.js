@@ -1,4 +1,7 @@
-let shouldResetScreen;
+let operandOne = '';
+let operandTwo = '';
+let currOperator = null;
+let shouldResetScreen = false;
 
 // Retrieve buttons
 const clearBtn = document.getElementById('clearBtn');
@@ -16,14 +19,14 @@ const prevScreen = document.getElementById('prevScreen');
 clearBtn.addEventListener('click', () => console.log("clear"));
 deleteBtn.addEventListener('click', () => console.log("delete"));
 dotBtn.addEventListener('click', () => console.log("dot"));
-equalsBtn.addEventListener('click', () => console.log("equals"));
+equalsBtn.addEventListener('click', () => evaluate());
 
 numberBtns.forEach((button) => {
     button.addEventListener('click', () => appendNumber(button.textContent));
 });
 
 operatorBtns.forEach((button) => {
-    button.addEventListener('click', () => appendOperator(button.textContent));
+    button.addEventListener('click', () => setOperation(button.textContent));
 });
 
 function resetScreen() {
@@ -35,12 +38,25 @@ function appendNumber(n) {
     if (currScreen.textContent === "0" || shouldResetScreen) {
         resetScreen();
     }
-    
+
     currScreen.textContent += n;
 }
 
-function appendOperator(operator) {
-    prevScreen.textContent = `${currScreen.textContent} ${operator} `
+function setOperation(operator) {
+    if (currOperator !== null) {
+        evaluate()
+    }
+
+    operandOne = currScreen.textContent;
+    currOperator = operator;
+    prevScreen.textContent = `${currScreen.textContent} ${operator}`
+    shouldResetScreen = true;
+}
+
+function evaluate() {
+    operandTwo = currScreen.textContent;
+    prevScreen.textContent = `${operandOne} ${currOperator} ${operandTwo} =`;
+    currScreen.textContent = operate(operandOne, operandTwo, currOperator);
 }
 
 
@@ -65,6 +81,9 @@ function divide(x, y) {
 }
 
 function operate(opOne, opTwo, operator) {
+    opOne = Number(opOne);
+    opTwo = Number(opTwo);
+
     switch (operator) {
         case ('+'):
             return add(opOne, opTwo);
