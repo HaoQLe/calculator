@@ -97,12 +97,16 @@ function operate(opOne, opTwo, operator) {
 
     switch (operator) {
         case ('+'):
-            return add(opOne, opTwo);
+            return roundResult(add(opOne, opTwo));
         case ('-'):
-            return subtract(opOne, opTwo);
+            return roundResult(subtract(opOne, opTwo));
         case ('×'):
-            return multiply(opOne, opTwo);
+            return roundResult(multiply(opOne, opTwo));
         case ('÷'):
-            return divide(opOne, opTwo);
+            return roundResult(divide(opOne, opTwo));
     } 
+}
+
+function roundResult(n) {
+    return Math.round(n * 1000) / 1000;
 }
