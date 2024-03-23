@@ -34,7 +34,7 @@ function appendNumber(n) {
 }
 
 function appendOperator(operator) {
-    currScreen.textContent += ` ${operator} `
+    prevScreen.textContent = `${currScreen.textContent} ${operator} `
 }
 
 

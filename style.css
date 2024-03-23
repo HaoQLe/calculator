@@ -21,6 +21,11 @@
     text-align: right;
 }
 
+#prevScreen {
+    height: 32px;
+    font-size: 20px;
+}
+
 #currScreen {
     min-height: 64px;
     font-size: 40px;
