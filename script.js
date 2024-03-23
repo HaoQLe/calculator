@@ -21,14 +21,21 @@ numberBtns.forEach((button) => {
 });
 
 operatorBtns.forEach((button) => {
-    button.addEventListener('click', () => console.log(button.textContent));
+    button.addEventListener('click', () => appendOperator(button.textContent));
 });
 
 
 function appendNumber(n) {
-    currScreen.textContent += n;
+    if (currScreen.textContent === "0") {
+        currScreen.textContent = n;
+    } else {
+        currScreen.textContent += n;
+    }
 }
 
+function appendOperator(operator) {
+    currScreen.textContent += ` ${operator} `
+}
 
 
 let opOne; // Op for operand
