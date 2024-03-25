@@ -92,7 +92,7 @@ function evaluate() {
         return;
     }
 
-    if (currOperator === '÷' && currScreen.textContent === '0') {
+    if (currOperator === '÷' && (currScreen.textContent === '0' || currScreen.textContent === '0.')) {
         alert("You cannot divide by zero!");
         return;
     }
