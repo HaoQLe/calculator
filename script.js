@@ -17,7 +17,7 @@ const currScreen = document.getElementById('currScreen');
 const prevScreen = document.getElementById('prevScreen');
 
 clearBtn.addEventListener('click', () => clear());
-deleteBtn.addEventListener('click', () => console.log("delete"));
+deleteBtn.addEventListener('click', () => deleteChar());
 dotBtn.addEventListener('click', () => console.log("dot"));
 equalsBtn.addEventListener('click', () => evaluate());
 
@@ -43,6 +43,10 @@ function clear() {
     prevScreen.textContent = '';
 }
 
+function deleteChar() {
+    currScreen.textContent = currScreen.textContent.slice(0, -1);
+}
+
 function appendNumber(n) {
     if (currScreen.textContent === "0" || shouldResetScreen) {
         resetScreen();
@@ -63,8 +67,13 @@ function setOperation(operator) {
 }
 
 function evaluate() {
+    if (currScreen.textContent === '') {
+        alert("Input is empty!");
+        return;
+    }
+
     if (currOperator === null || shouldResetScreen) {
-        return
+        return;
     }
 
     if (currOperator === '÷' && currScreen.textContent === '0') {
