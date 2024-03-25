@@ -18,7 +18,7 @@ const prevScreen = document.getElementById('prevScreen');
 
 clearBtn.addEventListener('click', () => clear());
 deleteBtn.addEventListener('click', () => deleteChar());
-dotBtn.addEventListener('click', () => console.log("dot"));
+dotBtn.addEventListener('click', () => appendPoint());
 equalsBtn.addEventListener('click', () => evaluate());
 
 numberBtns.forEach((button) => {
@@ -53,6 +53,22 @@ function appendNumber(n) {
     }
 
     currScreen.textContent += n;
+}
+
+function appendPoint() {
+    if (shouldResetScreen) {
+        resetScreen()
+    }
+
+    if (currScreen.textContent === '') {
+        currScreen.textContent = '0';
+    }
+
+    if (currScreen.textContent.includes('.')) {
+        return;
+    }
+
+    currScreen.textContent += '.';
 }
 
 function setOperation(operator) {
