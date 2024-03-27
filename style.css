@@ -1,20 +1,22 @@
 #calculator {
-    border: black solid;
+    background-color: #e8f1f2;
     width: 400px;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #e8f1f2;
 }
 
 #display {
-    border: black solid;
+    background-color: #028090;
     height: auto;
     min-height: 50px;
     width: 90%;
-    margin: 10px;
+    margin: 30px;
     padding: 5px;
+    border-radius: 5px;
 
     word-wrap: break-word;
     word-break: break-all;
@@ -43,4 +45,28 @@
 button {
     padding: 20px;
     font-size: 20px;
+    color: #e8f1f2;
+    border: none;
+    border-radius: 5px;
+}
+
+.number, #dotBtn {
+    background-color: #028090;
+    border: none;
+}
+
+.operator, #equalsBtn{
+    background-color: #114B5F;
+}
+
+#clearBtn, #deleteBtn {
+    background-color: #F45B69;
+}
+
+body {
+    background-color: #028090;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
