@@ -150,7 +150,7 @@ function keyboardInput(e) {
         appendPoint();
     }
 
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === '=') {
         evaluate();
     }
 
@@ -161,4 +161,14 @@ function keyboardInput(e) {
     if (e.key === 'Escape') {
         clearDisplay();
     }
+
+    if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/')
+    setOperation(convertOperator(e.key))
+}
+
+function convertOperator(operator) {
+    if (operator === '+') return '+';
+    if (operator === '-') return '-';
+    if (operator === '/') return '÷';
+    if (operator === '*') return '×';
 }
