@@ -16,10 +16,11 @@ const operatorBtns = document.querySelectorAll('.operator')
 const currScreen = document.getElementById('currScreen');
 const prevScreen = document.getElementById('prevScreen');
 
-clearBtn.addEventListener('click', () => clear());
-deleteBtn.addEventListener('click', () => deleteChar());
-dotBtn.addEventListener('click', () => appendPoint());
-equalsBtn.addEventListener('click', () => evaluate());
+window.addEventListener('keydown', keyboardInput);
+clearBtn.addEventListener('click', clearDisplay);
+deleteBtn.addEventListener('click', deleteChar);
+dotBtn.addEventListener('click', appendPoint);
+equalsBtn.addEventListener('click', evaluate);
 
 numberBtns.forEach((button) => {
     button.addEventListener('click', () => appendNumber(button.textContent));
@@ -34,7 +35,7 @@ function resetScreen() {
     shouldResetScreen = false;
 }
 
-function clear() {
+function clearDisplay() {
     operandOne = '';
     operandTwo = '';
     currOperator = null;
@@ -138,4 +139,26 @@ function operate(opOne, opTwo, operator) {
 
 function roundResult(n) {
     return Math.round(n * 1000) / 1000;
+}
+
+function keyboardInput(e) {
+    if (e.key >= 0 && e.key <= 9) {
+        appendNumber(e.key)
+    }
+
+    if (e.key === '.') {
+        appendPoint();
+    }
+
+    if (e.key === 'Enter') {
+        evaluate();
+    }
+
+    if (e.key === 'Backspace') {
+        deleteChar();
+    }
+
+    if (e.key === 'Escape') {
+        clearDisplay();
+    }
 }
